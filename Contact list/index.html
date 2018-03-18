@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Contacts</title>
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+<body>
+<div class="container"></div>
+<h1 class="center-align">My Contacts!</h1>
+<input type="text" id="filterInput" placeholder="write name here">
+<ul id='names' class="collection with-header">
+	<li class="collection-header">
+		<h5>A</h5>
+	</li>
+	<li class="collection-item">
+		<a href="#">Abe</a>
+	</li>
+		<li class="collection-item">
+		<a href="#">Adam</a>
+	</li>
+		<li class="collection-item">
+		<a href="#">Alan</a>
+	</li>
+		<li class="collection-item">
+		<a href="#">Anna</a>
+	</li>
+		<li class="collection-header">
+		<h5>B</h5>
+	</li>
+	<li class="collection-item">
+		<a href="#">Brad</a>
+	</li>
+		<li class="collection-item">
+		<a href="#">Brian</a>
+	</li>
+		<li class="collection-item">
+		<a href="#">Boo</a>
+	</li>
+		<li class="collection-header">
+		<h5>C</h5>
+	</li>
+	<li class="collection-item">
+		<a href="#">Ciran</a>
+	</li>
+		<li class="collection-item">
+		<a href="#">Caaa</a>
+	</li>
+</ul>
+
+<script>
+	var filterInput = document.getElementById('filterInput');
+	filterInput.focus()
+	filterInput.addEventListener('keyup', filterNames)
+	function filterNames () {
+		let filterValue = document.getElementById('filterInput').value.toUpperCase();
+		
+		// let ul = document.getElementById('names');
+		// let li = ul.querySelectorAll('li.collection-item');
+
+		// simpler:
+		let li = document.querySelectorAll('#names li.collection-item');
+
+		for (let i=0; i<li.length; i++) {
+			var a = li[i].getElementsByTagName('a')[0];
+		// if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+		// 	li[i].style.display = '';
+		// }
+		// else {
+		// 	li[i].style.display = 'none';
+		// }
+
+		// simpler:
+		if (a.innerHTML.toUpperCase().indexOf(filterValue) == -1) {
+			li[i].style.display = 'none';
+		}
+
+		}
+	}
+</script>
+</body>
+</html>
